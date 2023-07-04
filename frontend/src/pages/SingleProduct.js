@@ -186,7 +186,7 @@ const SingleProduct = () => {
                 <div className="d-flex gap-10 align-items-center my-3">
                   <h3 className="product-heading">Product Link:</h3>
                   <a
-                    href="javascript:void(0);"
+                    href="#"
                     onClick={() => {
                       copyToClipboard(
                         "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
@@ -311,7 +311,7 @@ const SingleProduct = () => {
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >

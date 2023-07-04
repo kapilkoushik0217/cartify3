@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
            <Route index element={<Home />} />
-           <Route path="store" element={<OurStore />} />
+           <Route path="product" element={<OurStore />} />
            <Route path="blogs" element={<Blog />} />
            <Route path="contact" element={<Contact />} />
            <Route path="compare-product" element={<CompareProduct />} />

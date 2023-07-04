@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
 import ReactStars from "react-rating-stars-component";
@@ -9,8 +9,19 @@ import gr4 from "../images/gr4.svg";
 import gr3 from "../images/gr3.svg";
 import gr2 from "../images/gr2.svg";
 import gr from "../images/gr.svg";
+import { useDispatch,useSelector } from "react-redux";
+import { getProducts } from "../features/products/productSlice";
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
+  const productState=useSelector((state)=>state?.product?.products);
+  console.log(productState);
+  const dispatch=useDispatch();
+  const getAllProducts=()=>{
+    dispatch(getProducts());
+  }
+  useEffect(()=>{
+    getAllProducts();
+  },[]);
   return (
     <>
       <Meta title={"Our Store"} />
@@ -187,12 +198,12 @@ const OurStore = () => {
                   </p>
                   <select
                     name=""
-                    defaultValue={"manula"}
+                    defaultValue={"manual"}
                     className="form-control form-select"
                     id=""
                   >
                     <option value="manual">Featured</option>
-                    <option value="best-selling">Best selling</option>
+                    <option value="best-selling" >Best selling</option>
                     <option value="title-ascending">Alphabetically, A-Z</option>
                     <option value="title-descending">
                       Alphabetically, Z-A
@@ -245,7 +256,7 @@ const OurStore = () => {
             </div>
             <div className="products-list pb-5">
               <div className="d-flex gap-10 flex-wrap">
-                <ProductCard grid={grid} />
+                <ProductCard data={productState?productState:[]} grid={grid} />
               </div>
             </div>
           </div>
